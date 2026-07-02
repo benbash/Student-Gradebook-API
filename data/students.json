@@ -1,1 +1,54 @@
-[]
+[
+  {
+    "id": "bb79bbfc-5b7e-4ec4-9c75-96c4b56e9537",
+    "name": "Jane Doe",
+    "grades": [
+      92,
+      85,
+      78,
+      100
+    ],
+    "createdAt": "2026-07-02T07:03:28.362Z",
+    "updatedAt": "2026-07-02T07:03:28.363Z"
+  },
+  {
+    "id": "d0721288-83fc-484b-b18b-42b84868a2c2",
+    "name": "Abdulwahab Lawal",
+    "grades": [
+      92,
+      85,
+      78,
+      100
+    ],
+    "createdAt": "2026-07-02T07:03:43.131Z",
+    "updatedAt": "2026-07-02T07:03:43.131Z"
+  },
+  {
+    "id": "73aea706-7cca-420b-bce8-5fe9a37246b1",
+    "name": "Abdulwahab Lawal",
+    "grades": [
+      92,
+      85,
+      78,
+      100
+    ],
+    "createdAt": "2026-07-02T07:03:46.344Z",
+    "updatedAt": "2026-07-02T07:03:46.345Z"
+  },
+  {
+    "id": "4784f7e7-554b-4303-8740-206a8cc377d8",
+    "name": "Abdulwahab Lawal",
+    "grades": [
+      92,
+      85,
+      78,
+      100
+    ],
+    "average": 88.75,
+    "highest": 100,
+    "lowest": 78,
+    "status": "Pass",
+    "createdAt": "2026-07-02T07:17:32.264Z",
+    "updatedAt": "2026-07-02T07:17:32.265Z"
+  }
+]
