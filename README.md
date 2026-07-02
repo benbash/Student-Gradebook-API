@@ -232,8 +232,8 @@ If any validation rule is violated, the API throws a `ValidationError` and retur
 ## Project Architecture
 1. Routes handles incoming HTTP requests, returns HTTP responses to the client, and manages error handling by sending the appropriate status codes and error messages.
 2. Services is responsible for reading from and writing to the JSON data file, performing CRUD operations on student records, generating unique IDs and timestamps, and calculating average grade, highest grade, lowest grade, and pass/fail status.
-3. Utils initializes the Express application, enables JSON request parsing, defines a root endpoint, registers the student API routes and starts the server so it can receive and process HTTP requests.
-4. Data contains all student records. It maintains student information, grades, grade analysis and timestamps.
+3. Utils is responsible for input validation and throwing validation errors.
+4. Data layer stores student records in `data/students.json`. It maintains student information, grades, grade analysis and timestamps.
 
 ## Team Contributions
 | Team Member | Responsibility |
