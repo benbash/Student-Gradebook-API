@@ -1,6 +1,7 @@
 import fs from "fs/promises";
 import path from "path";
 import { fileURLToPath } from "url";
+import { validateStudentData } from "../utils/validator.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const FILE_PATH = path.join(__dirname, "../../data/students.json");
@@ -46,12 +47,13 @@ export const getStudentById = async (id) => {
 };
 
 export const createStudent = async (studentData) => {
+  validateStudentData(studentData);
+
   const students = await readData();
 
-  // Unique Crypto ID generation
   const newStudent = {
     id: crypto.randomUUID(),
-    name: studentData.name,
+    name: studentData.name.trim(),
     grades: studentData.grades,
     ...calculateAnalytics(studentData.grades),
     createdAt: new Date().toISOString(),
@@ -61,4 +63,35 @@ export const createStudent = async (studentData) => {
   students.push(newStudent);
   await writeData(students);
   return newStudent;
+};
+
+export const updateStudent = async (id, studentData) => {
+  validateStudentData(studentData);
+
+  const students = await readData();
+  const index = students.findIndex((student) => student.id === id);
+  if (index === -1) return null;
+
+  const existingStudent = students[index];
+  const updatedStudent = {
+    ...existingStudent,
+    name: studentData.name.trim(),
+    grades: studentData.grades,
+    ...calculateAnalytics(studentData.grades),
+    updatedAt: new Date().toISOString(),
+  };
+
+  students[index] = updatedStudent;
+  await writeData(students);
+  return updatedStudent;
+};
+
+export const deleteStudent = async (id) => {
+  const students = await readData();
+  const index = students.findIndex((student) => student.id === id);
+  if (index === -1) return false;
+
+  students.splice(index, 1);
+  await writeData(students);
+  return true;
 };
