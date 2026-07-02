@@ -1,18 +1,21 @@
 # Student-Gradebook-API
 
 ## Project name — Student Gradebook
+
 ## Project number — Project 4
+
 A simple REST API for managing students, their grades and calculating their performance (average, highest, lowest and pass/fail grade.
 
 ## What the API does
+
 - Create new student records
 - Retrieve all students
 - Retrieve a student by ID
 - Update student records
 - Delete student records
 - Automatic UUID generation
-- Calculates average grade 
-- Calculates highest and lowest grade 
+- Calculates average grade
+- Calculates highest and lowest grade
 - Computes Pass/Fail metric
 - JSON file storage
 - Input validation
@@ -20,51 +23,71 @@ A simple REST API for managing students, their grades and calculating their perf
 - Error handling
 
 ## How to install
-1. Clone the repository using 
+
+1. Clone the repository using
+
 ```bash
    git clone https://github.com/yourusername/student-gradebook.git
 ```
+
 2. Navigate into the project's directory
+
 ```bash
    cd student-gradebook
 ```
+
 3. Install dependencies
+
 ```bash
   npm install
 ```
+
 4. Start the server
+
 ```bash
    npm run dev
 ```
+
 5. The server runs on
-``` http://localhost:3000 ```
+   `http://localhost:3000`
 
 ## API Endpoints
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/` | Returns the API title  |
-| GET | `/students` | Retrieve all students |
-| GET | `/students/:id` | Retrieve a student by ID |
-| POST | `/students` | Create a new student |
-| PUT | `/students/:id` | Update an existing student by ID |
-| DELETE | `/students/:id` | Delete a student by ID |
+
+| Method | Endpoint        | Description                      |
+| ------ | --------------- | -------------------------------- |
+| GET    | `/`             | Returns the API title            |
+| GET    | `/students`     | Retrieve all students            |
+| GET    | `/students/:id` | Retrieve a student by ID         |
+| POST   | `/students`     | Create a new student             |
+| PUT    | `/students/:id` | Update an existing student by ID |
+| DELETE | `/students/:id` | Delete a student by ID           |
 
 ## Requests and responses
-### 1. GET / 
+
+### 1. GET /
+
 ###### Request
+
 ```http
    GET /
 ```
+
 ###### Response
+
 ```JSON
    Student Gradebook API
 ```
+
 ### 2. GET /students
+
 ###### Request
+
 ```http
 GET /students
 ```
+
 ###### Response
+
 ```JSON
 [
 {
@@ -80,15 +103,21 @@ GET /students
 }
 ]
 ```
+
 ```status code
 200 OK
 ```
+
 ### 3. GET /students/:id
+
 ###### Request
+
 ```http
 GET /students/1a298940-a056-426b-af4f-ec9fcc080b97
 ```
+
 ##### Success Response
+
 ```JSON
 {
   "id": "1a298940-a056-426b-af4f-ec9fcc080b97",
@@ -102,24 +131,33 @@ GET /students/1a298940-a056-426b-af4f-ec9fcc080b97
   "updatedAt": "2026-07-02T16:18:07.965Z"
 }
 ```
+
 ##### Error Response
+
 ```JSON
 {
   "error": "Student not found"
 }
 ```
+
 ##### Status Codes
+
 ```
 200 OK
 404 Not Found
 ```
+
 ### 4. POST /students
+
 ##### Request
+
 ```http
 POST /students
 Content-Type: application/json
 ```
+
 ##### Body
+
 ```JSON
 {
   "name": "Chuks James",
@@ -128,6 +166,7 @@ Content-Type: application/json
 ```
 
 ##### Success Response
+
 ```JSON
 {
   "id": "550e8400-e29b-41d4-a716-446655440000",
@@ -141,7 +180,9 @@ Content-Type: application/json
   "updatedAt": "2026-07-02T17:20:00.000Z"
 }
 ```
+
 ##### Validation Error
+
 ```JSON
 {
   "error": "Validation error message"
@@ -149,24 +190,32 @@ Content-Type: application/json
 ```
 
 ##### Status Codes
+
 ```
 201 Created
 400 Bad Request
 ```
+
 ### 5. PUT /students/:id
+
 ##### Request
+
 ```http
 PUT /students/1a298940-a056-426b-af4f-ec9fcc080b97
 Content-Type: application/json
 ```
+
 ##### Body
+
 ```JSON
 {
 "name": "John Smith",
 "grades": [90, 85, 80]
 }
 ```
+
 ##### Success Response
+
 ```JSON
 {
   "id": "1a298940-a056-426b-af4f-ec9fcc080b97",
@@ -180,36 +229,51 @@ Content-Type: application/json
   "updatedAt": "2026-07-02T18:00:00.000Z"
 }
 ```
+
 ##### Error Response
+
 ```JSON
 {
   "error": "Student not found"
 }
 ```
+
 ##### Status Codes
+
 ```
 200 OK
 400 Bad Request
 404 Not Found
 ```
+
 ### 6. DELETE /students/:id
+
 ##### Request
+
 ```http
 DELETE /students/1a298940-a056-426b-af4f-ec9fcc080b97
 ```
+
 ##### Success Response
+
 ```
 No Content
 ```
+
 ##### Status Code for Successful Response
+
 ```
 204 No Content
 ```
+
 ##### Error Response
+
 {
-  "error": "Student not found"
+"error": "Student not found"
 }
+
 ##### Status Code for Error Response
+
 ```
 404 Not Found
 ```
@@ -228,23 +292,26 @@ No Content
 
 If any validation rule is violated, the API throws a `ValidationError` and returns a **400 Bad Request** response.
 
-
 ## Project Architecture
+
 1. Routes handles incoming HTTP requests, returns HTTP responses to the client, and manages error handling by sending the appropriate status codes and error messages.
 2. Services is responsible for reading from and writing to the JSON data file, performing CRUD operations on student records, generating unique IDs and timestamps, and calculating average grade, highest grade, lowest grade, and pass/fail status.
 3. Utils is responsible for input validation and throwing validation errors.
 4. Data layer stores student records in `data/students.json`. It maintains student information, grades, grade analysis and timestamps.
 
 ## Team Contributions
-| Team Member | Responsibility |
-|------------|----------------|
-| Member 1 | Developed all API routes (`GET`, `POST`, `PUT`, `DELETE`) using Express Router. |
-| Member 2 | Implemented file storage using `fs/promises`, including reading from and writing to `students.json`. |
-| Member 3 | Implemented input validation for required fields and data types |
-| Member 4 | Conducted API testing and verified endpoint functionality. |
-| Babatunde Naheemot Atinuke | Prepared the project documentation (`README.md`). |
+
+| Team Member                | Responsibility                                                                                                                                                                                                                               |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Abdulwahab Lawal Abdullahi | Developed API endpoints for retrieving all students, retrieving a student by ID, and creating a student, and helper functions to read file, write file, calcuate analytics, getting all students,getting student by ID and creating student. |
+| Adeyemi Ezekiel Dolapo     | Implemented input validation for required fields and data types; created endpoints for updating and deleting students by ID, and helper functions for updating and deleting student.                                                         |
+| benbash                    | Set up the GitHub repository, conducted API testing, and verified endpoint functionality.                                                                                                                                                    |
+| Babatunde Naheemot Atinuke | Prepared the project documentation (`README.md`).                                                                                                                                                                                            |
 
 ## Known Issues & Limitations
 
-
-
+- Data storage is file-based (`data/students.json`) and is not safe for concurrent writes or high traffic.
+- No authentication or authorization is implemented; all endpoints are publicly accessible.
+- Input validation is basic and does not enforce grade ranges or complex rules (e.g., 0–100 bounds).
+- Calculations (average) use simple floating-point arithmetic and may show minor rounding differences.
+- API lacks pagination, filtering, and rate limiting which may limit usability with large datasets.
