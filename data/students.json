@@ -1,35 +1,13 @@
 [
   {
-    "id": "4784f7e7-554b-4303-8740-206a8cc377d8",
+    "id": "1a298940-a056-426b-af4f-ec9fcc080b97",
     "name": "Abdulwahab Lawal",
-    "grades": [
-      92,
-      85,
-      78,
-      100
-    ],
-    "average": 88.75,
-    "highest": 100,
+    "grades": [92, 85, 78],
+    "average": 85,
+    "highest": 92,
     "lowest": 78,
     "status": "Pass",
-    "createdAt": "2026-07-02T07:17:32.264Z",
-    "updatedAt": "2026-07-02T07:17:32.265Z"
-  },
-  {
-    "id": "f3dc788f-e00b-4ac4-90e7-a0af9ba146c8",
-    "name": "Ezekiel",
-    "grades": [
-      85,
-      70,
-      20,
-      50,
-      20
-    ],
-    "average": 49,
-    "highest": 85,
-    "lowest": 20,
-    "status": "Fail",
-    "createdAt": "2026-07-02T11:36:01.332Z",
-    "updatedAt": "2026-07-02T11:36:01.332Z"
+    "createdAt": "2026-07-02T16:18:07.964Z",
+    "updatedAt": "2026-07-02T16:18:07.965Z"
   }
 ]
