@@ -1,10 +1,8 @@
 # Student-Gradebook-API
 
-## Project name — Student Gradebook
-
 ## Project number — Project 4
 
-A simple REST API for managing students, their grades and calculating their performance (average, highest, lowest and pass/fail grade.
+A simple REST API for managing students, their grades, and calculating academic performance metric such as average score, highest score, lowest score and pass/fail status.
 
 ## What the API does
 
@@ -53,14 +51,14 @@ A simple REST API for managing students, their grades and calculating their perf
 
 ## API Endpoints
 
-| Method | Endpoint        | Description                      |
-| ------ | --------------- | -------------------------------- |
-| GET    | `/`             | Returns the API title            |
-| GET    | `/students`     | Retrieve all students            |
-| GET    | `/students/:id` | Retrieve a student by ID         |
-| POST   | `/students`     | Create a new student             |
-| PUT    | `/students/:id` | Update an existing student by ID |
-| DELETE | `/students/:id` | Delete a student by ID           |
+| Method | Endpoint        | Description                             |
+| ------ | --------------- | --------------------------------        |
+| GET    | `/`             | Returns the API title                   |
+| GET    | `/students`     | Retrieve all student records            |
+| GET    | `/students/:id` | Retrieve a student by record ID         |
+| POST   | `/students`     | Create a new student record             |
+| PUT    | `/students/:id` | Update an existing student record by ID |
+| DELETE | `/students/:id` | Delete a student record by ID           |
 
 ## Requests and responses
 
@@ -306,7 +304,7 @@ If any validation rule is violated, the API throws a `ValidationError` and retur
 | Abdulwahab Lawal Abdullahi | Developed API endpoints for retrieving all students, retrieving a student by ID, and creating a student, and helper functions to read file, write file, calcuate analytics, getting all students,getting student by ID and creating student. |
 | Adeyemi Ezekiel Dolapo     | Implemented input validation for required fields and data types; created endpoints for updating and deleting students by ID, and helper functions for updating and deleting student.                                                         |
 | benbash                    | Set up the GitHub repository, conducted API testing, and verified endpoint functionality.                                                                                                                                                    |
-| Babatunde Naheemot Atinuke | Prepared the project documentation (`README.md`).                                                                                                                                                                                            |
+| Babatunde Naheemot Atinuke and Balogun Faithful Onize | Prepared the project documentation (`README.md`).                                                                                                                                                                                            |
 
 ## Known Issues & Limitations
 
@@ -315,3 +313,11 @@ If any validation rule is violated, the API throws a `ValidationError` and retur
 - Input validation is basic and does not enforce grade ranges or complex rules (e.g., 0–100 bounds).
 - Calculations (average) use simple floating-point arithmetic and may show minor rounding differences.
 - API lacks pagination, filtering, and rate limiting which may limit usability with large datasets.
+
+## Future Possible Improvements
+
+- Replace the current json file storage system with a database solution such as MongoDB and PostgreSQL to improve scalability and ensure data reliability.
+- Implement authentication and authorization mechanism to secure API endpoints and control access to student records.
+- Enhance input validation by enforcing grade constraints, validating data formats more strictly, and providing more descriptive error messages.
+- Improve grade calculations by implementing consistent rounding strategies and more robust numerical handling where necessary.
+- Add support for pagination, filtering, and search functionality to improve performance and usability when handling large dataset.  
