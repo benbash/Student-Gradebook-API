@@ -1,13 +1,17 @@
 [
   {
-    "id": "1a298940-a056-426b-af4f-ec9fcc080b97",
-    "name": "Abdulwahab Lawal",
-    "grades": [92, 85, 78],
-    "average": 85,
-    "highest": 92,
-    "lowest": 78,
+    "id": "974fbfd6-701a-4ddb-a5ca-15923d85130e",
+    "name": "fefefe",
+    "grades": [
+      44,
+      66,
+      55
+    ],
+    "average": 55,
+    "highest": 66,
+    "lowest": 44,
     "status": "Pass",
-    "createdAt": "2026-07-02T16:18:07.964Z",
-    "updatedAt": "2026-07-02T16:18:07.965Z"
+    "createdAt": "2026-07-02T23:02:23.505Z",
+    "updatedAt": "2026-07-02T23:02:23.505Z"
   }
 ]
