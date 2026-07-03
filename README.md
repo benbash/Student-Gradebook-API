@@ -322,6 +322,7 @@ I tested the Student Gradebook API using Postman to confirm that the main endpoi
 | POST | `/students` with invalid data | Test validation errors | `400 Bad Request` |
 
 During testing, I confirmed that `POST /students` creates a student successfully and returns `201 Created`. I also confirmed that `PUT /students/:id` updates the student name and grades, then recalculates the average, highest grade, lowest grade, and pass/fail status correctly.|
+| Berinyuy Melvine Kangong / EMPOWERED-NEXUS | Tested the API endpoints in Postman, confirmed POST and PUT functionality, verified average/highest/lowest/pass-fail responses, checked validation behavior, and contributed README testing documentation. |
 
 ## Known Issues & Limitations
 
@@ -330,4 +331,3 @@ During testing, I confirmed that `POST /students` creates a student successfully
 - Input validation is basic and does not enforce grade ranges or complex rules (e.g., 0–100 bounds).
 - Calculations (average) use simple floating-point arithmetic and may show minor rounding differences.
 - API lacks pagination, filtering, and rate limiting which may limit usability with large datasets.
-| Berinyuy Melvine Kangong / EMPOWERED-NEXUS | Tested the API endpoints in Postman, confirmed POST and PUT functionality, verified average/highest/lowest/pass-fail responses, checked validation behavior, and contributed README testing documentation. |
