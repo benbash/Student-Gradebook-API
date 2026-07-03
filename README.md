@@ -27,7 +27,7 @@ A simple REST API for managing students, their grades and calculating their perf
 1. Clone the repository using
 
 ```bash
-   git clone https://github.com/yourusername/student-gradebook.git
+   git clone https://github.com/benbash/Student-Gradebook-API.git
 ```
 
 2. Navigate into the project's directory
@@ -306,7 +306,23 @@ If any validation rule is violated, the API throws a `ValidationError` and retur
 | Abdulwahab Lawal Abdullahi | Developed API endpoints for retrieving all students, retrieving a student by ID, and creating a student, and helper functions to read file, write file, calcuate analytics, getting all students,getting student by ID and creating student. |
 | Adeyemi Ezekiel Dolapo     | Implemented input validation for required fields and data types; created endpoints for updating and deleting students by ID, and helper functions for updating and deleting student.                                                         |
 | benbash                    | Set up the GitHub repository, conducted API testing, and verified endpoint functionality.                                                                                                                                                    |
-| Babatunde Naheemot Atinuke | Prepared the project documentation (`README.md`).                                                                                                                                                                                            |
+| Babatunde Naheemot Atinuke | Prepared the project documentation (`README.md`).                                                                                                                                                                                            ## API Testing Contribution
+
+### Tested by Berinyuy Melvine Kangong / EMPOWERED-NEXUS
+
+I tested the Student Gradebook API using Postman to confirm that the main endpoints work correctly and return the expected HTTP status codes.
+
+| Method | Endpoint | Purpose | Expected Status |
+| ------ | -------- | ------- | --------------- |
+| GET | `/students` | Retrieve all student records | `200 OK` |
+| POST | `/students` | Create a new student record | `201 Created` |
+| GET | `/students/:id` | Retrieve one student by ID | `200 OK` |
+| PUT | `/students/:id` | Update a student record by ID | `200 OK` |
+| DELETE | `/students/:id` | Delete a student record by ID | `204 No Content` |
+| POST | `/students` with invalid data | Test validation errors | `400 Bad Request` |
+
+During testing, I confirmed that `POST /students` creates a student successfully and returns `201 Created`. I also confirmed that `PUT /students/:id` updates the student name and grades, then recalculates the average, highest grade, lowest grade, and pass/fail status correctly.|
+| Berinyuy Melvine Kangong / EMPOWERED-NEXUS | Tested the API endpoints in Postman, confirmed POST and PUT functionality, verified average/highest/lowest/pass-fail responses, checked validation behavior, and contributed README testing documentation. |
 
 ## Known Issues & Limitations
 
