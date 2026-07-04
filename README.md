@@ -25,7 +25,7 @@ A simple REST API for managing students, their grades, and calculating academic 
 1. Clone the repository using
 
 ```bash
-   git clone https://github.com/yourusername/student-gradebook.git
+   git clone https://github.com/benbash/Student-Gradebook-API.git
 ```
 
 2. Navigate into the project's directory
@@ -304,7 +304,7 @@ If any validation rule is violated, the API throws a `ValidationError` and retur
 | Abdulwahab Lawal Abdullahi | Developed API endpoints for retrieving all students, retrieving a student by ID, and creating a student, and helper functions to read file, write file, calcuate analytics, getting all students,getting student by ID and creating student. |
 | Adeyemi Ezekiel Dolapo     | Implemented input validation for required fields and data types; created endpoints for updating and deleting students by ID, and helper functions for updating and deleting student.                                                         |
 | benbash                    | Set up the GitHub repository, conducted API testing, and verified endpoint functionality.                                                                                                                                                    |
-| Babatunde Naheemot Atinuke and Balogun Faithful Onize | Prepared the project documentation (`README.md`).                                                                                                                                                                                            |
+| Babatunde Naheemot Atinuke | Prepared the project documentation (`README.md`).                                                                                                                                                                                            |
 
 ## Known Issues & Limitations
 
