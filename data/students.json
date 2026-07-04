@@ -1,13 +1,17 @@
 [
   {
-    "id": "1a298940-a056-426b-af4f-ec9fcc080b97",
-    "name": "Abdulwahab Lawal",
-    "grades": [92, 85, 78],
-    "average": 85,
-    "highest": 92,
-    "lowest": 78,
-    "status": "Pass",
-    "createdAt": "2026-07-02T16:18:07.964Z",
-    "updatedAt": "2026-07-02T16:18:07.965Z"
+    "id": "1fb184e3-4a81-4528-b735-fe864fbe646a",
+    "name": "Abdulwahab Abdullahi",
+    "grades": [
+      5,
+      6,
+      8
+    ],
+    "average": 6.33,
+    "highest": 8,
+    "lowest": 5,
+    "status": "Fail",
+    "createdAt": "2026-07-04T11:00:39.580Z",
+    "updatedAt": "2026-07-04T11:00:56.693Z"
   }
 ]
