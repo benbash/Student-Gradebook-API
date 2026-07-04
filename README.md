@@ -287,6 +287,7 @@ No Content
 - Student IDs are automatically generated using UUID.
 - `createdAt` is automatically generated when a student record is created.
 - `updatedAt` is automatically updated whenever a student record is modified.
+- Every grade must be between 0 and 100.
 
 If any validation rule is violated, the API throws a `ValidationError` and returns a **400 Bad Request** response.
 
@@ -310,7 +311,7 @@ If any validation rule is violated, the API throws a `ValidationError` and retur
 
 - Data storage is file-based (`data/students.json`) and is not safe for concurrent writes or high traffic.
 - No authentication or authorization is implemented; all endpoints are publicly accessible.
-- Input validation is basic and does not enforce grade ranges or complex rules (e.g., 0–100 bounds).
+- Input validation enforces required fields, correct data types, and grade values between 0 and 100.
 - Calculations (average) use simple floating-point arithmetic and may show minor rounding differences.
 - API lacks pagination, filtering, and rate limiting which may limit usability with large datasets.
 
