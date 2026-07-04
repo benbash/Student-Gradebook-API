@@ -2,7 +2,7 @@
 
 ## Project number — Project 4
 
-A simple REST API for managing students, their grades, and calculating academic performance metric such as average score, highest score, lowest score and pass/fail status.
+A simple REST API for managing students, their grades, and calculating academic performance metric such as average score, highest score, lowest score and pass/fail status. The project demonstrates fundamental backend development concepts, including routing, controllers, services, validation, modular programming with ES Modules, file handling using fs/promises, and persistent data storage in JSON files. it is designed as a learning project to showcase clean project structure, teamwork, and backend best practices.
 
 ## What the API does
 
