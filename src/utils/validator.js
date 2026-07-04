@@ -27,4 +27,8 @@ export const validateStudentData = (studentData) => {
   if (grades.some((grade) => typeof grade !== "number" || !Number.isFinite(grade))) {
     throw new ValidationError("Grades array must contain only finite numbers.");
   }
+
+  if (grades.some((grade) => grade < 0 || grade > 100)) {
+    throw new ValidationError("Each grade must be between 0 and 100.");
+  }
 };
