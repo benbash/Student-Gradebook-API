@@ -1,17 +1,17 @@
 [
   {
-    "id": "974fbfd6-701a-4ddb-a5ca-15923d85130e",
-    "name": "fefefe",
+    "id": "1fb184e3-4a81-4528-b735-fe864fbe646a",
+    "name": "Abdulwahab Abdullahi",
     "grades": [
-      44,
-      66,
-      55
+      5,
+      6,
+      8
     ],
-    "average": 55,
-    "highest": 66,
-    "lowest": 44,
-    "status": "Pass",
-    "createdAt": "2026-07-02T23:02:23.505Z",
-    "updatedAt": "2026-07-02T23:02:23.505Z"
+    "average": 6.33,
+    "highest": 8,
+    "lowest": 5,
+    "status": "Fail",
+    "createdAt": "2026-07-04T11:00:39.580Z",
+    "updatedAt": "2026-07-04T11:00:56.693Z"
   }
 ]
