@@ -13,5 +13,35 @@
     "status": "Fail",
     "createdAt": "2026-07-04T11:00:39.580Z",
     "updatedAt": "2026-07-04T11:00:56.693Z"
+  },
+  {
+    "id": "ce89b39e-3c9c-476d-83f8-9669d1738768",
+    "name": "Oluwafemi Adunmo",
+    "grades": [
+      69,
+      60,
+      51
+    ],
+    "average": 60,
+    "highest": 69,
+    "lowest": 51,
+    "status": "Pass",
+    "createdAt": "2026-07-05T22:28:23.280Z",
+    "updatedAt": "2026-07-05T23:07:49.704Z"
+  },
+  {
+    "id": "6caee311-a41d-49a1-947d-18f7d2c3905c",
+    "name": "Mervin",
+    "grades": [
+      59,
+      63,
+      92
+    ],
+    "average": 71.33,
+    "highest": 92,
+    "lowest": 59,
+    "status": "Pass",
+    "createdAt": "2026-07-05T23:07:23.401Z",
+    "updatedAt": "2026-07-05T23:07:59.034Z"
   }
 ]
