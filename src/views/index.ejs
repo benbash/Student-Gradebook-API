@@ -27,22 +27,14 @@
         <!-- Add Student Form Card -->
         <div class="form-card">
             <h2>➕ Add New Student</h2>
-<<<<<<< HEAD
             <form action="/create" method="POST">
-=======
-            <form id="createForm" action="/create" method="POST" onsubmit="return validateGradesForm(this)">
->>>>>>> f8970e3 (Validation Update)
                 <div>
                     <label for="name">Student Name *</label>
                     <input id="name" name="name" type="text" placeholder="e.g., Abdulwahab Lawal" required />
                 </div>
                 <div>
                     <label for="grades">Grades (comma-separated) *</label>
-<<<<<<< HEAD
                     <input id="grades" name="grades" type="text" placeholder="e.g., 90,85,78" required />
-=======
-                    <input id="grades" name="grades" type="text" placeholder="e.g., 90,85,78" required title="Enter comma-separated numbers between 0 and 100" />
->>>>>>> f8970e3 (Validation Update)
                 </div>
                 <div>
                     <button type="submit">Create Student</button>
@@ -72,11 +64,8 @@
                             <th class="text-center">Highest</th>
                             <th class="text-center">Lowest</th>
                             <th class="text-center">Average</th>
-<<<<<<< HEAD
                             <th class="text-center">DC</th>
                             <th class="text-center">DU</th>
-=======
->>>>>>> f8970e3 (Validation Update)
                             <th class="text-center">Status</th>
                             <th class="text-center">Actions</th>
                         </tr>
@@ -121,7 +110,6 @@
                                         <%= student.average %>%
                                     </td>
 
-<<<<<<< HEAD
                                     <!-- Date created -->
                                     <td class="text-center score-average">
                                         <%= student.createdAt %>
@@ -132,8 +120,6 @@
                                         <%= student.updatedAt %>
                                     </td>
 
-=======
->>>>>>> f8970e3 (Validation Update)
                                     <!-- Status Pill badge -->
                                     <td class="text-center">
                                         <% if (student.status.toLowerCase() === 'pass') { %>
@@ -173,11 +159,7 @@
     <div id="editModal" class="modal">
         <div class="modal-content">
             <h2>Edit Student</h2>
-<<<<<<< HEAD
             <form id="editForm" method="POST">
-=======
-            <form id="editForm" method="POST" onsubmit="return validateGradesForm(this)">
->>>>>>> f8970e3 (Validation Update)
                 <div>
                     <label for="editName">Student Name</label>
                     <input id="editName" name="name" type="text" required />
@@ -195,31 +177,6 @@
     </div>
 
     <script>
-<<<<<<< HEAD
-=======
-        function validateGradesString(gradesStr) {
-            if (!gradesStr || typeof gradesStr !== 'string') return false;
-            const parts = gradesStr.split(',').map(s => s.trim()).filter(Boolean);
-            if (parts.length === 0) return false;
-            for (let p of parts) {
-                const n = Number(p);
-                if (!Number.isFinite(n) || n < 0 || n > 100) return false;
-            }
-            return true;
-        }
-
-        function validateGradesForm(form) {
-            const gradesInput = form.querySelector('[name="grades"]');
-            if (!gradesInput) return true; // nothing to validate
-            const ok = validateGradesString(gradesInput.value);
-            if (!ok) {
-                alert('Grades must be comma-separated numbers between 0 and 100.');
-                gradesInput.focus();
-            }
-            return ok;
-        }
-
->>>>>>> f8970e3 (Validation Update)
         function openEditModal(id, name, grades) {
             document.getElementById("editName").value = name;
             document.getElementById("editGrades").value = grades;

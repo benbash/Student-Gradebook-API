@@ -2,11 +2,7 @@
 
 ## Project number — Project 4
 
-<<<<<<< HEAD
 A simple REST API for managing students, their grades, and calculating academic performance metric such as average score, highest score, lowest score and pass/fail status.
-=======
-A simple REST API for managing students, their grades, and calculating academic performance metric such as average score, highest score, lowest score and pass/fail status. The project demonstrates fundamental backend development concepts, including routing, controllers, services, validation, modular programming with ES Modules, file handling using fs/promises, and persistent data storage in JSON files. it is designed as a learning project to showcase clean project structure, teamwork, and backend best practices.
->>>>>>> f8970e3 (Validation Update)
 
 ## What the API does
 
@@ -291,10 +287,7 @@ No Content
 - Student IDs are automatically generated using UUID.
 - `createdAt` is automatically generated when a student record is created.
 - `updatedAt` is automatically updated whenever a student record is modified.
-<<<<<<< HEAD
 - Every grade must be between 0 and 100.
-=======
->>>>>>> f8970e3 (Validation Update)
 
 If any validation rule is violated, the API throws a `ValidationError` and returns a **400 Bad Request** response.
 
@@ -318,11 +311,7 @@ If any validation rule is violated, the API throws a `ValidationError` and retur
 
 - Data storage is file-based (`data/students.json`) and is not safe for concurrent writes or high traffic.
 - No authentication or authorization is implemented; all endpoints are publicly accessible.
-<<<<<<< HEAD
 - Input validation enforces required fields, correct data types, and grade values between 0 and 100.
-=======
-- Input validation is basic and does not enforce grade ranges or complex rules (e.g., 0–100 bounds).
->>>>>>> f8970e3 (Validation Update)
 - Calculations (average) use simple floating-point arithmetic and may show minor rounding differences.
 - API lacks pagination, filtering, and rate limiting which may limit usability with large datasets.
 
