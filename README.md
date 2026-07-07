@@ -332,7 +332,6 @@ During testing, It was confirmed that `POST /students` created a student success
 
 - Data storage is file-based (`data/students.json`) and is not safe for concurrent writes or high traffic.
 - No authentication or authorization is implemented; all endpoints are publicly accessible.
-- Input validation enforces required fields, correct data types, and grade values between 0 and 100.
 - Calculations (average) use simple floating-point arithmetic and may show minor rounding differences.
 - API lacks pagination, filtering, and rate limiting which may limit usability with large datasets.
 
