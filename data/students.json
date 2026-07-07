@@ -15,49 +15,19 @@
     "updatedAt": "2026-07-04T11:00:56.693Z"
   },
   {
-    "id": "31aa8db7-6f2d-4dfa-956a-ff093a3b5249",
-    "name": "-190234",
-    "grades": [
-      -1000,
-      0,
-      100000000000000100000
-    ],
-    "average": 33333333333333365000,
-    "highest": 100000000000000100000,
-    "lowest": -1000,
-    "status": "Pass",
-    "createdAt": "2026-07-06T15:03:21.916Z",
-    "updatedAt": "2026-07-06T15:03:21.916Z"
-  },
-  {
     "id": "c070ed44-f5a7-4ab8-b2d3-e258e3a381fc",
     "name": "Ben Bash",
     "grades": [
-      -20,
-      0,
-      10000
+      67,
+      50,
+      100
     ],
-    "average": 3326.67,
-    "highest": 10000,
-    "lowest": -20,
+    "average": 72.33,
+    "highest": 100,
+    "lowest": 50,
     "status": "Pass",
     "createdAt": "2026-07-06T15:14:54.430Z",
-    "updatedAt": "2026-07-06T15:14:54.430Z"
-  },
-  {
-    "id": "19ffdbac-84cd-4f07-9fe0-562606c97b28",
-    "name": "Ben Bash",
-    "grades": [
-      -15,
-      0,
-      1000
-    ],
-    "average": 328.33,
-    "highest": 1000,
-    "lowest": -15,
-    "status": "Pass",
-    "createdAt": "2026-07-06T15:18:42.676Z",
-    "updatedAt": "2026-07-06T15:18:42.678Z"
+    "updatedAt": "2026-07-07T11:21:08.183Z"
   },
   {
     "id": "72dae994-d01e-44c5-b9ff-51e117b57107",

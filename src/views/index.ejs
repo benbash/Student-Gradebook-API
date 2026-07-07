@@ -64,6 +64,8 @@
                             <th class="text-center">Highest</th>
                             <th class="text-center">Lowest</th>
                             <th class="text-center">Average</th>
+                            <th class="text-center">DC</th>
+                            <th class="text-center">DU</th>
                             <th class="text-center">Status</th>
                             <th class="text-center">Actions</th>
                         </tr>
@@ -106,6 +108,16 @@
                                     <!-- Average Score -->
                                     <td class="text-center score-average">
                                         <%= student.average %>%
+                                    </td>
+
+                                    <!-- Average Score -->
+                                    <td class="text-center score-average">
+                                        <%= student.createdAt %>
+                                    </td>
+
+                                    <!-- Average Score -->
+                                    <td class="text-center score-average">
+                                        <%= student.updatedAt %>
                                     </td>
 
                                     <!-- Status Pill badge -->
