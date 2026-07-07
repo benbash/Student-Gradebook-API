@@ -339,6 +339,5 @@ During testing, It was confirmed that `POST /students` created a student success
 
 - Replace the current json file storage system with a database solution such as MongoDB and PostgreSQL to improve scalability and ensure data reliability.
 - Implement authentication and authorization mechanism to secure API endpoints and control access to student records.
-- Enhance input validation by enforcing grade constraints, validating data formats more strictly, and providing more descriptive error messages.
 - Improve grade calculations by implementing consistent rounding strategies and more robust numerical handling where necessary.
 - Add support for pagination, filtering, and search functionality to improve performance and usability when handling large dataset.  
