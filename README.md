@@ -31,7 +31,7 @@ A simple REST API for managing students, their grades, and calculating academic 
 2. Navigate into the project's directory
 
 ```bash
-   cd student-gradebook
+  cd Student-Gradebook-API
 ```
 
 3. Install dependencies
@@ -53,7 +53,7 @@ A simple REST API for managing students, their grades, and calculating academic 
 
 | Method | Endpoint        | Description                             |
 | ------ | --------------- | --------------------------------        |
-| GET    | `/`             | Returns the API title                   |
+| GET    | `/`             | Renders the student dashboard           |
 | GET    | `/students`     | Retrieve all student records            |
 | GET    | `/students/:id` | Retrieve a student by record ID         |
 | POST   | `/students`     | Create a new student record             |
@@ -73,7 +73,7 @@ A simple REST API for managing students, their grades, and calculating academic 
 ###### Response
 
 ```JSON
-   Student Gradebook API
+  Renders the Student Gradebook Dashboard page.
 ```
 
 ### 2. GET /students
