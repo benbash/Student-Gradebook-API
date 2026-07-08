@@ -6,7 +6,7 @@ export class ValidationError extends Error {
 }
 
 export const validateStudentData = (studentData) => {
-  if (!studentData || typeof studentData !== "object") {
+  if (!studentData || typeof studentData !== "object" || Array.isArray(studentData)) {
     throw new ValidationError("Student data must be provided as an object.");
   }
 

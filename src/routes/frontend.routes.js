@@ -4,135 +4,110 @@ import { ValidationError } from "../utils/validator.js";
 
 const router = Router();
 
-// Helper to parse grades from string
+// Helper function to show the dashboard again
+const renderDashboard = async (res, message = null, error = null) => {
+  const students = await StudentService.getAllStudents();
+
+  return res.render("index", {
+    students,
+    message,
+    error,
+  });
+};
+
+// Helper function to convert grades from form text into numbers
 const parseGrades = (grades) => {
-  let gradesArray = [];
-  if (typeof grades === "string") {
-    gradesArray = grades
-      .split(",")
-      .map((g) => Number(g.trim()))
-      .filter((n) => !Number.isNaN(n));
-  } else if (Array.isArray(grades)) {
-    gradesArray = grades.map((g) => Number(g));
+  if (typeof grades !== "string") {
+    throw new ValidationError("Grades must be entered as comma-separated numbers.");
   }
+
+  const gradeValues = grades.split(",").map((grade) => grade.trim());
+
+  if (gradeValues.length === 0 || gradeValues.some((grade) => grade === "")) {
+    throw new ValidationError("Grades cannot be empty.");
+  }
+
+  const gradesArray = gradeValues.map((grade) => Number(grade));
+
+  if (gradesArray.some((grade) => Number.isNaN(grade))) {
+    throw new ValidationError("Grades must contain only numbers.");
+  }
+
   return gradesArray;
 };
 
-// GET / - Render dashboard with all students
+// GET /
+// Show dashboard with all students
 router.get("/", async (req, res) => {
   try {
-    const students = await StudentService.getAllStudents();
-    res.render("index", { students, message: null, error: null });
+    await renderDashboard(res);
   } catch (error) {
-    console.error("Error rendering home page:", error.message || error);
+    console.error("Error rendering dashboard:", error.message || error);
     res.status(500).send("Internal Server Error");
   }
 });
 
-// POST /create - Create a new student
+// POST /create
+// Create a new student from the form
 router.post("/create", async (req, res) => {
   try {
     const { name, grades } = req.body;
-    console.log("Form submission:", { name, grades });
 
     const gradesArray = parseGrades(grades);
 
-    if (gradesArray.length === 0) {
-      const students = await StudentService.getAllStudents();
-      return res.render("index", {
-        students,
-        error: "Please enter valid grades (comma-separated numbers)",
-        message: null,
-      });
-    }
-
-    await StudentService.createStudent({ name, grades: gradesArray });
-    console.log("Student created successfully");
-    const students = await StudentService.getAllStudents();
-    res.render("index", {
-      students,
-      message: "Student created successfully!",
-      error: null,
+    await StudentService.createStudent({
+      name,
+      grades: gradesArray,
     });
+
+    await renderDashboard(res, "Student created successfully!", null);
   } catch (error) {
     console.error("Error creating student:", error.message || error);
-    const students = await StudentService.getAllStudents();
-    res.render("index", {
-      students,
-      error: error.message || "Error creating student",
-      message: null,
-    });
+    await renderDashboard(res, null, error.message || "Error creating student.");
   }
 });
 
-// POST /update/:id - Update a student
+// POST /update/:id
+// Update a student from the form
 router.post("/update/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const { name, grades } = req.body;
-    console.log("Update submission:", { id, name, grades });
 
     const gradesArray = parseGrades(grades);
 
-    if (gradesArray.length === 0) {
-      const students = await StudentService.getAllStudents();
-      return res.render("index", {
-        students,
-        error: "Please enter valid grades (comma-separated numbers)",
-        message: null,
-      });
+    const updatedStudent = await StudentService.updateStudent(id, {
+      name,
+      grades: gradesArray,
+    });
+
+    if (!updatedStudent) {
+      return await renderDashboard(res, null, "Student not found.");
     }
 
-    await StudentService.updateStudent(id, { name, grades: gradesArray });
-    console.log("Student updated successfully");
-    const students = await StudentService.getAllStudents();
-    res.render("index", {
-      students,
-      message: "Student updated successfully!",
-      error: null,
-    });
+    await renderDashboard(res, "Student updated successfully!", null);
   } catch (error) {
     console.error("Error updating student:", error.message || error);
-    const students = await StudentService.getAllStudents();
-    res.render("index", {
-      students,
-      error: error.message || "Error updating student",
-      message: null,
-    });
+    await renderDashboard(res, null, error.message || "Error updating student.");
   }
 });
 
-// POST /delete/:id - Delete a student
+// POST /delete/:id
+// Delete a student from the form
 router.post("/delete/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    console.log("Delete submission:", { id });
 
     const deleted = await StudentService.deleteStudent(id);
+
     if (!deleted) {
-      const students = await StudentService.getAllStudents();
-      return res.render("index", {
-        students,
-        error: "Student not found",
-        message: null,
-      });
+      return await renderDashboard(res, null, "Student not found.");
     }
 
-    console.log("Student deleted successfully");
-    const students = await StudentService.getAllStudents();
-    res.render("index", {
-      students,
-      message: "Student deleted successfully!",
-      error: null,
-    });
+    await renderDashboard(res, "Student deleted successfully!", null);
   } catch (error) {
     console.error("Error deleting student:", error.message || error);
-    const students = await StudentService.getAllStudents();
-    res.render("index", {
-      students,
-      error: error.message || "Error deleting student",
-      message: null,
-    });
+    await renderDashboard(res, null, error.message || "Error deleting student.");
   }
 });
 
