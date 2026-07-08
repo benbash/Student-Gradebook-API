@@ -15,6 +15,14 @@ export const validateStudentData = (studentData) => {
     throw new ValidationError("Student name must be a string.");
   }
 
+  // const nameExists = students.findOne({ name: name });
+
+  // // Invalidate if the name exists
+  // if (nameExists) {
+  //   throw new ValidationError(`The student name "${name}" already exists.`);
+  // }
+
+
   const trimmedName = name.trim();
   if (trimmedName.length === 0) {
     throw new ValidationError("Student name must not be empty.");
