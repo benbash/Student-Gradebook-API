@@ -298,20 +298,40 @@ If any validation rule is violated, the API throws a `ValidationError` and retur
 3. Utils is responsible for input validation and throwing validation errors.
 4. Data layer stores student records in `data/students.json`. It maintains student information, grades, grade analysis and timestamps.
 
+### Tested by Berinyuy Melvine Kangong / EMPOWERED-NEXUS
+
+Tested the Student Gradebook API using Postman to confirm that the main endpoints work correctly and return the expected HTTP status codes.
+
+### Responses returned after testing
+| Method | Endpoint | Purpose | Expected Status |
+| ------ | -------- | ------- | --------------- |
+| GET | `/students` | Retrieve all student records | `200 OK` |
+| POST | `/students` | Create a new student record | `201 Created` |
+| GET | `/students/:id` | Retrieve one student by ID | `200 OK` |
+| PUT | `/students/:id` | Update a student record by ID | `200 OK` |
+| DELETE | `/students/:id` | Delete a student record by ID | `204 No Content` |
+| POST | `/students` with invalid data | Test validation errors | `400 Bad Request` |
+
+During testing, It was confirmed that `POST /students` created a student successfully and returns `201 Created`. It was also confirmed that `PUT /students/:id` updated the student name and grades, then recalculates the average, highest grade, lowest grade, and pass/fail status correctly.
+
+
+
 ## Team Contributions
 
 | Team Member                | Responsibility                                                                                                                                                                                                                               |
 | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Abdulwahab Lawal Abdullahi | Developed API endpoints for retrieving all students, retrieving a student by ID, and creating a student, and helper functions to read file, write file, calcuate analytics, getting all students,getting student by ID and creating student. |
 | Adeyemi Ezekiel Dolapo     | Implemented input validation for required fields and data types; created endpoints for updating and deleting students by ID, and helper functions for updating and deleting student.                                                         |
-| benbash                    | Set up the GitHub repository, conducted API testing, and verified endpoint functionality.                                                                                                                                                    |
-| Babatunde Naheemot Atinuke | Prepared the project documentation (`README.md`).                                                                                                                                                                                            |
-
+| Bash Benshak Haruna                    | Set up the GitHub repository, Updated Input validation, conducted API testing, and verified endpoint functionality.                                                                                                                                                    |
+| Babatunde Naheemot Atinuke | Prepared the README.md, including the project overview, setup instructions, API documentation, endpoint specifications, request and response examples, validation rules, project architecture, and team contribution details                                                                                                                                                                       |
+| Berinyuy Melvine Kangong / EMPOWERED-NEXUS | Tested the API endpoints in Postman, confirmed POST and PUT functionality, verified average/highest/lowest/pass-fail responses, checked validation behavior and contributed README testing documentation. |
+| Adunmo Oluwafemi | Implemented the UI and refactored the student dashboard by replacing the EJS implementation with new frontend routes, updated the application structure and styling and enhanced the overall user interface and user experience. Untrack the student.json from the remote repo. |
+| Balogun Faithful Onize | Updated the README with the Future Improvements section to address the limitations that were listed and a few wording improvements for clarity, like refining some endpoint descriptions. |
+| Arinze Chukwuemeka | Contributed to the project documentation |
 ## Known Issues & Limitations
 
 - Data storage is file-based (`data/students.json`) and is not safe for concurrent writes or high traffic.
 - No authentication or authorization is implemented; all endpoints are publicly accessible.
-- Input validation enforces required fields, correct data types, and grade values between 0 and 100.
 - Calculations (average) use simple floating-point arithmetic and may show minor rounding differences.
 - API lacks pagination, filtering, and rate limiting which may limit usability with large datasets.
 
@@ -319,6 +339,5 @@ If any validation rule is violated, the API throws a `ValidationError` and retur
 
 - Replace the current json file storage system with a database solution such as MongoDB and PostgreSQL to improve scalability and ensure data reliability.
 - Implement authentication and authorization mechanism to secure API endpoints and control access to student records.
-- Enhance input validation by enforcing grade constraints, validating data formats more strictly, and providing more descriptive error messages.
 - Improve grade calculations by implementing consistent rounding strategies and more robust numerical handling where necessary.
 - Add support for pagination, filtering, and search functionality to improve performance and usability when handling large dataset.  

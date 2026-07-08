@@ -2,9 +2,15 @@ import fs from "fs/promises";
 import path from "path";
 import { fileURLToPath } from "url";
 import { validateStudentData } from "../utils/validator.js";
+// 1. Import your ID function
+import { idUpdates } from "../utils/idupdate.js"; 
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const FILE_PATH = path.join(__dirname, "../../data/students.json");
+
+// 2. Initialize the generator outside the helper methods 
+// This keeps the `id` sequential counter alive across multiple requests
+const generateStudentId = idUpdates();
 
 // Helper to read file
 const readData = async () => {
@@ -12,7 +18,6 @@ const readData = async () => {
     const data = await fs.readFile(FILE_PATH, "utf-8");
     return JSON.parse(data);
   } catch (error) {
-    // If file doesn't exist, return empty array
     if (error.code === "ENOENT") return [];
     throw error;
   }
@@ -32,7 +37,7 @@ const calculateAnalytics = (grades) => {
   const average = Math.round((sum / grades.length) * 100) / 100;
   const highest = Math.max(...grades);
   const lowest = Math.min(...grades);
-  const status = average >= 50 ? "Pass" : "Fail"; // Pass threshold set at 50
+  const status = average >= 50 ? "Pass" : "Fail";
 
   return { average, highest, lowest, status };
 };
@@ -47,12 +52,14 @@ export const getStudentById = async (id) => {
 };
 
 export const createStudent = async (studentData) => {
-  validateStudentData(studentData);
+  // 3. Added 'await' because our new validation code runs an async DB/file check
+  await validateStudentData(studentData);
 
   const students = await readData();
 
   const newStudent = {
-    id: crypto.randomUUID(),
+    // 4. Replaced crypto.randomUUID() with your custom closure generator
+    id: generateStudentId(), 
     name: studentData.name.trim(),
     grades: studentData.grades,
     ...calculateAnalytics(studentData.grades),
@@ -66,7 +73,8 @@ export const createStudent = async (studentData) => {
 };
 
 export const updateStudent = async (id, studentData) => {
-  validateStudentData(studentData);
+  // Added 'await' here as well for consistency
+  await validateStudentData(studentData);
 
   const students = await readData();
   const index = students.findIndex((student) => student.id === id);
